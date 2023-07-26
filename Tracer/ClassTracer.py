@@ -38,12 +38,16 @@ class Tracer:
     def lastName(self):
         self.LAST_NAME = tkinter.Label(PERSONAL_INFORMATION, text="Last Name")
         self.LAST_NAME.grid(row=1, column=0)
-        self.LastName_INPUT = tkinter.Entry(PERSONAL_INFORMATION)
-        self.LastName_INPUT.grid(row=1, column=1)
+        self.LAST_NAME_INPUT = tkinter.Entry(PERSONAL_INFORMATION)
+        self.LAST_NAME_INPUT.grid(row=1, column=1)
 
     #Gender label and entry
-    
-    #last name label and entry
+    def gender(self):
+        self.GENDER = tkinter.Label(PERSONAL_INFORMATION, text="Gender")
+        self.GENDER.grid(row=2, column=0)
+        self.GENDER_INPUT = ttk.Combobox(PERSONAL_INFORMATION, values=["Male", "Female", "Transgender Male", "Transgender Female", "Prefer Not to Say"])
+        self.GENDER_INPUT.grid(row=2, column=1)
+
     
     #Age label and entry
     
