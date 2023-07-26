@@ -80,7 +80,11 @@ class Tracer:
         self.PHONE_INPUT.grid(row=6, column=1)
     
     #put terms and condition checkbox
-
+    def accept(self):
+        self.accept_var = tkinter.StringVar(value="Not Accepted")
+        self.terms_check = tkinter.Checkbutton(PERSONAL_INFORMATION, text= "I accept the terms and conditions.",
+                                        variable=self.accept_var, onvalue="Accepted", offvalue="Not Accepted")
+        self.terms_check.grid(row=8, column=1)
     #fix spacing of widgets
 
     #create a save/add function for all user's info into a database ( i prefer excel as my database)
