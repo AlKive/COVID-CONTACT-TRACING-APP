@@ -86,6 +86,9 @@ class Tracer:
                                         variable=self.accept_var, onvalue="Accepted", offvalue="Not Accepted")
         self.terms_check.grid(row=8, column=1)
     #fix spacing of widgets
+    def separate(self):
+        for widget in PERSONAL_INFORMATION.winfo_children():
+            widget.grid_configure(padx=20, pady=10)
 
     #create a save/add function for all user's info into a database ( i prefer excel as my database)
 
