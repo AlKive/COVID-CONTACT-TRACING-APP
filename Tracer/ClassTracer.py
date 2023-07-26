@@ -91,6 +91,13 @@ class Tracer:
             widget.grid_configure(padx=20, pady=10)
 
     #create a save/add function for all user's info into a database ( i prefer excel as my database)
+    def add(self):
+        firstname = self.FIRST_NAME_INPUT.get()
+        lastname = self.LAST_NAME_INPUT.get()
+        
+        
+        print("First name: ", firstname, "Last name: ", lastname)
+
 
     #create save/add button               
 
