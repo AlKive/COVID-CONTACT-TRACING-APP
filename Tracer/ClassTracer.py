@@ -26,8 +26,12 @@ class Tracer:
           self.self  = self
     
 #create functions for getting user's input using tkinter entry with label
-
-    #first name label and entry
+    def firstName(self):
+        #first name label and entry
+        self.FIRST_NAME = tkinter.Label(PERSONAL_INFORMATION, text="First Name")
+        self.FIRST_NAME.grid(row=0, column=0)
+        self.FIRST_NAME_INPUT = tkinter.Entry(PERSONAL_INFORMATION)
+        self.FIRST_NAME_INPUT.grid(row=0, column=1)
     
     #last name label and entry
     
