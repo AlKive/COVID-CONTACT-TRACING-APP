@@ -50,7 +50,12 @@ class Tracer:
 
     
     #Age label and entry
-    
+    def age(self):
+        self.AGE = tkinter.Label(PERSONAL_INFORMATION, text="Age")
+        self.AGE.grid(row=3, column=0)
+        self.AGE_INPUT = tkinter.Spinbox(PERSONAL_INFORMATION, from_=1, to=100)
+        self.AGE_INPUT.grid(row=3, column=1)
+
     #Nationality label and entry
 
     #Vaccination Status label and entry
