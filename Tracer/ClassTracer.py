@@ -20,6 +20,7 @@ PERSONAL_INFORMATION =tkinter.LabelFrame(mainframe, text="PERSONAL INFORMATION")
 PERSONAL_INFORMATION.pack(side=TOP,padx=50, pady=30, fill= "both", expand= True)
 
 #create class
+class Tracer:
     #init function & create instance of variable
     
     #create functions for getting user's input using tkinter entry with label
