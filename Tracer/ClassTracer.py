@@ -16,6 +16,8 @@ mainframe = tkinter.Frame(ws, background= "light blue")
 mainframe.pack(fill="both", expand= True)
 
 #label the frame
+PERSONAL_INFORMATION =tkinter.LabelFrame(mainframe, text="PERSONAL INFORMATION")
+PERSONAL_INFORMATION.pack(side=TOP,padx=50, pady=30, fill= "both", expand= True)
 
 #create class
     #init function & create instance of variable
