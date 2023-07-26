@@ -95,8 +95,18 @@ class Tracer:
         firstname = self.FIRST_NAME_INPUT.get()
         lastname = self.LAST_NAME_INPUT.get()
         
+        if firstname and lastname:
+                nationality  = self.NATIONALITY_INPUT.get()
+                age = self.AGE_INPUT.get()
+                gender = self.GENDER_INPUT.get()
+                vaccination = self.VACCINATION_STATUS_INPUT.get()
+                phone = self.PHONE_INPUT.get()
+                
         
-        print("First name: ", firstname, "Last name: ", lastname)
+        
+        print("First name: ", firstname , "\n" , "Last name: ", lastname)
+        print("Age: ", age, "\n", "Nationality: ", nationality, "\n", "Gender :", gender)
+        print("Vaccination Status: ", vaccination, "\n", "Cellphone Number : ", phone)
 
 
     #create save/add button               
