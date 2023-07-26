@@ -63,15 +63,21 @@ class Tracer:
         self.NATIONALITY.grid(row=4, column=0)
         self.NATIONALITY_INPUT = ttk.Combobox(PERSONAL_INFORMATION, values=["Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"])
         self.NATIONALITY_INPUT.grid(row=4, column=1)
+        
     #Vaccination Status label and entry
     def vaccination(self):
-        #Vaccination Status label and entry
+        
         self.VACCINATION_STATUS = tkinter.Label(PERSONAL_INFORMATION, text="Vaccination Status")
         self.VACCINATION_STATUS.grid(row=7, column=0)
         self.VACCINATION_STATUS_INPUT = ttk.Combobox(PERSONAL_INFORMATION, values=["Unvaccinated", "1st Dose", "2nd Dose(Fully Vaccinated)", "1st Booster Shot", "2nd Booster Shot"])
         self.VACCINATION_STATUS_INPUT.grid(row=7, column=1)
 
     #Phone Number label and entry
+    def phone(self):
+        self.PHONE = tkinter.Label(PERSONAL_INFORMATION, text= "Cellphone Number")
+        self.PHONE.grid(row=6, column=0)
+        self.PHONE_INPUT = tkinter.Entry(PERSONAL_INFORMATION)
+        self.PHONE_INPUT.grid(row=6, column=1)
     
     #put terms and condition checkbox
 
