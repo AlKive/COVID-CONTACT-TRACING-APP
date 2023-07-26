@@ -79,6 +79,12 @@ class Tracer:
         self.PHONE_INPUT = tkinter.Entry(PERSONAL_INFORMATION)
         self.PHONE_INPUT.grid(row=6, column=1)
     
+    # address label and entry
+    def address(self):
+        self.ADDRESS = tkinter.Label(PERSONAL_INFORMATION, text="Address")
+        self.ADDRESS.grid(row=7, column=0)
+        self.ADDRESS_INPUT = tkinter.Entry(PERSONAL_INFORMATION)
+        self.ADDRESS_INPUT.grid(row=7, column=1)    
     #put terms and condition checkbox
     def accept(self):
         self.accept_var = tkinter.StringVar(value="Not Accepted")
@@ -98,6 +104,7 @@ class Tracer:
         if firstname and lastname:
                 nationality  = self.NATIONALITY_INPUT.get()
                 age = self.AGE_INPUT.get()
+                address = self.ADDRESS_INPUT.get()
                 gender = self.GENDER_INPUT.get()
                 vaccination = self.VACCINATION_STATUS_INPUT.get()
                 phone = self.PHONE_INPUT.get()
@@ -106,7 +113,7 @@ class Tracer:
         
         print("First name: ", firstname , "\n" , "Last name: ", lastname)
         print("Age: ", age, "\n", "Nationality: ", nationality, "\n", "Gender :", gender)
-        print("Vaccination Status: ", vaccination, "\n", "Cellphone Number : ", phone)
+        print("Vaccination Status: ", vaccination, "\n", "Cellphone Number : ", phone, "\n", "Address :", address)
 
 
     #create save/add button               
