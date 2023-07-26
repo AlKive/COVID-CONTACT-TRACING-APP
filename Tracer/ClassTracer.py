@@ -1,6 +1,9 @@
 #PSEUDOCODE
 #import tkinter 
-
+from tkinter import*
+from tkinter import ttk
+import tkinter
+from tkinter import messagebox
 #create tkinter window    
 
 #create frame for necessary information 
