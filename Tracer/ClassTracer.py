@@ -5,12 +5,15 @@ from tkinter import ttk
 import tkinter
 from tkinter import messagebox
 #create tkinter window    
+
 ws = tkinter.Tk()
 ws.geometry("1000x550")
 ws.title("COVID Contact Tracing Form")
 ws.configure(highlightbackground= "dark blue", highlightthickness= "3")
 
 #create frame for necessary information 
+mainframe = tkinter.Frame(ws, background= "light blue")
+mainframe.pack(fill="both", expand= True)
 
 #label the frame
 
