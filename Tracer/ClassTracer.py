@@ -3,6 +3,8 @@
 from tkinter import*
 from tkinter import ttk
 import tkinter
+import os
+import openpyxl
 from tkinter import messagebox
 #create tkinter window    
 
@@ -109,12 +111,30 @@ class Tracer:
                 vaccination = self.VACCINATION_STATUS_INPUT.get()
                 phone = self.PHONE_INPUT.get()
                 
-        
-        
-        print("First name: ", firstname , "\n" , "Last name: ", lastname)
-        print("Age: ", age, "\n", "Nationality: ", nationality, "\n", "Gender :", gender)
-        print("Vaccination Status: ", vaccination, "\n", "Cellphone Number : ", phone, "\n", "Address :", address)
+                print("First name: ", firstname , "\n" , "Last name: ", lastname)
+                print("Age: ", age, "\n", "Nationality: ", nationality, "\n", "Gender :", gender)
+                print("Vaccination Status: ", vaccination, "\n", "Cellphone Number : ", phone, "\n", "Address :", address)
 
+                filepath =("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\data.xlsx")
+
+                if not os.path.exists(filepath):
+                    workbook = openpyxl.Workbook()
+                    sheet = workbook.active
+                    heading = ["First Name", "Last Name", "Gender", "Age", "Nationality",
+                            "Address", "Cellphone Number", "Vaccination status"]
+                    sheet.append(heading)
+                    workbook.save(filepath)
+                workbook = openpyxl.load_workbook(filepath)
+                sheet = workbook.active
+                sheet.append([firstname, lastname, gender, age, nationality, address,
+                            phone, vaccination])
+                workbook.save(filepath)
+                
+            
+            else:
+                tkinter.messagebox.showwarning(title="Error", message="First name and last name are required.")
+        else:
+            tkinter.messagebox.showwarning(title= "Error", message="You have not accepted the terms and conditions")
 
     #create save/add button               
 
