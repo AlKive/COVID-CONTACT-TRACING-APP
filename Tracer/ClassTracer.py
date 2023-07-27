@@ -6,9 +6,11 @@ import tkinter
 import os
 import openpyxl
 from tkinter import messagebox
+from openpyxl import Workbook
 
-#create tkinter window    
-ws = tkinter.Tk()
+#create tkinter window 
+mw =Tk()   
+ws = tkinter.Tk(mw)
 ws.geometry("1000x550")
 ws.title("COVID Contact Tracing Form")
 ws.configure(highlightbackground= "dark blue", highlightthickness= "3")
@@ -138,24 +140,42 @@ class Tracer:
                 tkinter.messagebox.showwarning(title= "Error", message="You have not accepted the terms and conditions")
     #create search method
     def searchByFirstName(self):
-        FirstName = self.FIRST_NAME_INPUT.get()
+        FirstNameInput = self.FIRST_NAME_INPUT.get()
+        self.FIRST_NAME_INPUT.configure(state= ttk.NORMAL)
+        self.LAST_NAME_INPUT.configure(state= ttk.NORMAL)
+        self.GENDER_INPUT.configure(state= ttk.NORMAL)
+        self.AGE_INPUT.configure(state= ttk.NORMAL)
+        self.NATIONALITY_INPUT.configure(state= ttk.NORMAL)
+        self.ADDRESS_INPUT.configure(state= ttk.NORMAL)
+        self.PHONE_INPUT.configure(state= ttk.NORMAL)
+        self.VACCINATION_STATUS_INPUT.configure(state= ttk.NORMAL)
+        
+        self.FIRST_NAME_INPUT.delete(0, 'end')
+        self.LAST_NAME_INPUT.delete(0, 'end')
+        self.GENDER_INPUT.delete(0, 'end')
+        self.AGE_INPUT.delete(0, 'end')
+        self.NATIONALITY_INPUT.delete(0, 'end')
+        self.ADDRESS_INPUT.delete(0, 'end')
+        self.PHONE_INPUT.delete(0, 'end')
+        self.VACCINATION_STATUS_INPUT.delete(0, 'end')
+            
         wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")  
-        sheet = wb.active  
-        for row in sheet.iter_cols(min_row=1, min_col=1, max_row=1000, max_col=1):  
-            for cell in row:  
-                if FirstName == (cell.value):
-                    messagebox.showinfo(title="FIRST NAME", message= FirstName + " Exists in the excel File.")  
-                    break
-            if FirstName != (cell.value):
-                messagebox.showinfo(title="FIRST NAME", message= FirstName + " Does Not Exists in the excel File.") 
-                break 
-    def showdata(self):
-        wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")  
-        sheet = wb.active 
-        cells = sheet['A1','B7'] 
-        # cells behave like range operator  
-        for i1,i2 in cells:  
-            print("{0:8} {1:8}".format(i1.value,i2.value))          
+        sheet = wb["sheet"]  
+        for cell in sheet.iter_rows(min_row=1, min_col=1, max_row =sheet.max_row, max_col=9, values_only=True):  
+            if cell[0] == str(self.firstname):
+                self.FIRST_NAME_INPUT.insert(0, cell[1])
+                self.LAST_NAME_INPUT.insert(0, cell[2])
+                self.GENDER_INPUT.insert(0, cell[3])
+                self.AGE_INPUT.insert(0, cell[4])
+                self.NATIONALITY_INPUT.insert(0, cell[5])
+                self.ADDRESS_INPUT.insert(0, cell[6])
+                self.PHONE_INPUT.insert(0, cell[7])
+                self.VACCINATION_STATUS_INPUT.insert(0, cell[8])
+                
+                
+                  
+            
+                   
     #create save/add button 
     def button_add(self):
         button = tkinter.Button(PERSONAL_INFORMATION, text="Enter data", command= self.add)
