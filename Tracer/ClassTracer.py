@@ -135,8 +135,21 @@ class Tracer:
                 tkinter.messagebox.showwarning(title="Error", message="First name and last name are required.")
         else:
             tkinter.messagebox.showwarning(title= "Error", message="You have not accepted the terms and conditions")
-
-    #create save/add button               
+    #create search method
+      def searchByFirstName(self):
+        FirstName = self.FirstName_INPUT.get()
+        wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\data.xlsx")  
+        sheet = wb.active  
+        for row in sheet.iter_cols(min_row=1, min_col=1, max_row=1000, max_col=1):  
+            for cell in row:  
+                if FirstName == (cell.value):
+                    messagebox.showinfo(title="FIRST NAME", message= FirstName + " Exists in the excel File.")  
+                    break
+            if FirstName != (cell.value):
+                messagebox.showinfo(title="FIRST NAME", message= FirstName + " Does Not Exists in the excel File.") 
+                break 
+    #create save/add button     
+              
 
     #create search button
         
