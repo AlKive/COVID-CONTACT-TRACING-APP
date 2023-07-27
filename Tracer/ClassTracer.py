@@ -10,7 +10,7 @@ from openpyxl import Workbook
 
 #create tkinter window 
 mw =Tk()   
-ws = tkinter.Tk(mw)
+ws = tkinter.Tk()
 ws.geometry("1000x550")
 ws.title("COVID Contact Tracing Form")
 ws.configure(highlightbackground= "dark blue", highlightthickness= "3")
@@ -141,14 +141,14 @@ class Tracer:
     #create search method
     def searchByFirstName(self):
         FirstNameInput = self.FIRST_NAME_INPUT.get()
-        self.FIRST_NAME_INPUT.configure(state= ttk.NORMAL)
-        self.LAST_NAME_INPUT.configure(state= ttk.NORMAL)
-        self.GENDER_INPUT.configure(state= ttk.NORMAL)
-        self.AGE_INPUT.configure(state= ttk.NORMAL)
-        self.NATIONALITY_INPUT.configure(state= ttk.NORMAL)
-        self.ADDRESS_INPUT.configure(state= ttk.NORMAL)
-        self.PHONE_INPUT.configure(state= ttk.NORMAL)
-        self.VACCINATION_STATUS_INPUT.configure(state= ttk.NORMAL)
+        self.FIRST_NAME_INPUT.configure(state= tkinter.NORMAL)
+        self.LAST_NAME_INPUT.configure(state= tkinter.NORMAL)
+        self.GENDER_INPUT.configure(state= tkinter.NORMAL)
+        self.AGE_INPUT.configure(state= tkinter.NORMAL)
+        self.NATIONALITY_INPUT.configure(state= tkinter.NORMAL)
+        self.ADDRESS_INPUT.configure(state= tkinter.NORMAL)
+        self.PHONE_INPUT.configure(state= tkinter.NORMAL)
+        self.VACCINATION_STATUS_INPUT.configure(state= tkinter.NORMAL)
         
         self.FIRST_NAME_INPUT.delete(0, 'end')
         self.LAST_NAME_INPUT.delete(0, 'end')
@@ -160,9 +160,9 @@ class Tracer:
         self.VACCINATION_STATUS_INPUT.delete(0, 'end')
             
         wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")  
-        sheet = wb["sheet"]  
+        sheet = wb["Sheet"]  
         for cell in sheet.iter_rows(min_row=1, min_col=1, max_row =sheet.max_row, max_col=9, values_only=True):  
-            if cell[0] == str(self.firstname):
+            if cell[0] == str(FirstNameInput):
                 self.FIRST_NAME_INPUT.insert(0, cell[1])
                 self.LAST_NAME_INPUT.insert(0, cell[2])
                 self.GENDER_INPUT.insert(0, cell[3])
@@ -172,10 +172,16 @@ class Tracer:
                 self.PHONE_INPUT.insert(0, cell[7])
                 self.VACCINATION_STATUS_INPUT.insert(0, cell[8])
                 
+                self.FIRST_NAME_INPUT.configure(state= tkinter.DISABLED)
+                self.LAST_NAME_INPUT.configure(state= tkinter.DISABLED)
+                self.GENDER_INPUT.configure(state= tkinter.DISABLED)
+                self.AGE_INPUT.configure(state= tkinter.DISABLED)
+                self.NATIONALITY_INPUT.configure(state= tkinter.DISABLED)
+                self.ADDRESS_INPUT.configure(state= tkinter.DISABLED)
+                self.PHONE_INPUT.configure(state= tkinter.DISABLED)
+                self.VACCINATION_STATUS_INPUT.configure(state= tkinter.DISABLED)
                 
-                  
-            
-                   
+                    
     #create save/add button 
     def button_add(self):
         button = tkinter.Button(PERSONAL_INFORMATION, text="Enter data", command= self.add)
