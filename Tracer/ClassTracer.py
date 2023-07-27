@@ -115,7 +115,7 @@ class Tracer:
                 print("Age: ", age, "\n", "Nationality: ", nationality, "\n", "Gender :", gender)
                 print("Vaccination Status: ", vaccination, "\n", "Cellphone Number : ", phone, "\n", "Address :", address)
 
-                filepath =("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\data.xlsx")
+                filepath =("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")
 
                 if not os.path.exists(filepath):
                     workbook = openpyxl.Workbook()
@@ -138,7 +138,7 @@ class Tracer:
     #create search method
       def searchByFirstName(self):
         FirstName = self.FirstName_INPUT.get()
-        wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\data.xlsx")  
+        wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")  
         sheet = wb.active  
         for row in sheet.iter_cols(min_row=1, min_col=1, max_row=1000, max_col=1):  
             for cell in row:  
