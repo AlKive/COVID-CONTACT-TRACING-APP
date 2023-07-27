@@ -1,11 +1,20 @@
-#import tkinter and Tracer class
 from tkinter import*
-from covid_back_up import Tracer
+from ClassTracer import Tracer
 import tkinter
 ws=Tk()
-
-
-#create object
 al =Tracer()
-
-#run object functions        
+  
+      
+al.firstName()      
+al.lastName()
+al.age()
+al.address()
+al.gender()
+al.national()
+al.vaccination()
+al.phone()
+al.accept()
+al.separate()
+al.button_add()
+al.button_search()
+ws.mainloop()

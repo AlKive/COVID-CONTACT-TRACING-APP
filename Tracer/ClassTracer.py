@@ -6,8 +6,8 @@ import tkinter
 import os
 import openpyxl
 from tkinter import messagebox
-#create tkinter window    
 
+#create tkinter window    
 ws = tkinter.Tk()
 ws.geometry("1000x550")
 ws.title("COVID Contact Tracing Form")
@@ -100,43 +100,44 @@ class Tracer:
 
     #create a save/add function for all user's info into a database ( i prefer excel as my database)
     def add(self):
-        firstname = self.FIRST_NAME_INPUT.get()
-        lastname = self.LAST_NAME_INPUT.get()
-        
-        if firstname and lastname:
-                nationality  = self.NATIONALITY_INPUT.get()
-                age = self.AGE_INPUT.get()
-                address = self.ADDRESS_INPUT.get()
-                gender = self.GENDER_INPUT.get()
-                vaccination = self.VACCINATION_STATUS_INPUT.get()
-                phone = self.PHONE_INPUT.get()
-                
-                print("First name: ", firstname , "\n" , "Last name: ", lastname)
-                print("Age: ", age, "\n", "Nationality: ", nationality, "\n", "Gender :", gender)
-                print("Vaccination Status: ", vaccination, "\n", "Cellphone Number : ", phone, "\n", "Address :", address)
-
-                filepath =("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")
-
-                if not os.path.exists(filepath):
-                    workbook = openpyxl.Workbook()
-                    sheet = workbook.active
-                    heading = ["First Name", "Last Name", "Gender", "Age", "Nationality",
-                            "Address", "Cellphone Number", "Vaccination status"]
-                    sheet.append(heading)
-                    workbook.save(filepath)
-                workbook = openpyxl.load_workbook(filepath)
-                sheet = workbook.active
-                sheet.append([firstname, lastname, gender, age, nationality, address,
-                            phone, vaccination])
-                workbook.save(filepath)
-                
+        accepted = self.accept_var.get()
+        if accepted=="Accepted":
+            firstname = self.FIRST_NAME_INPUT.get()
+            lastname = self.LAST_NAME_INPUT.get()
             
+            if firstname and lastname:
+                    nationality  = self.NATIONALITY_INPUT.get()
+                    age = self.AGE_INPUT.get()
+                    address = self.ADDRESS_INPUT.get()
+                    gender = self.GENDER_INPUT.get()
+                    vaccination = self.VACCINATION_STATUS_INPUT.get()
+                    phone = self.PHONE_INPUT.get()
+                    
+                    print("First name: ", firstname , "\n" , "Last name: ", lastname)
+                    print("Age: ", age, "\n", "Nationality: ", nationality, "\n", "Gender :", gender)
+                    print("Vaccination Status: ", vaccination, "\n", "Cellphone Number : ", phone, "\n", "Address :", address)
+
+                    filepath =("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")
+
+                    if not os.path.exists(filepath):
+                        workbook = openpyxl.Workbook()
+                        sheet = workbook.active
+                        heading = ["First Name", "Last Name", "Gender", "Age", "Nationality",
+                                "Address", "Cellphone Number", "Vaccination status"]
+                        sheet.append(heading)
+                        workbook.save(filepath)
+                    workbook = openpyxl.load_workbook(filepath)
+                    sheet = workbook.active
+                    sheet.append([firstname, lastname, gender, age, nationality, address,
+                                phone, vaccination])
+                    workbook.save(filepath)
+                
             else:
-                tkinter.messagebox.showwarning(title="Error", message="First name and last name are required.")
+                        tkinter.messagebox.showwarning(title="Error", message="First name and last name are required.")
         else:
-            tkinter.messagebox.showwarning(title= "Error", message="You have not accepted the terms and conditions")
+                tkinter.messagebox.showwarning(title= "Error", message="You have not accepted the terms and conditions")
     #create search method
-      def searchByFirstName(self):
+    def searchByFirstName(self):
         FirstName = self.FirstName_INPUT.get()
         wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")  
         sheet = wb.active  
