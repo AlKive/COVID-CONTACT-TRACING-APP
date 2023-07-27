@@ -148,8 +148,14 @@ class Tracer:
             if FirstName != (cell.value):
                 messagebox.showinfo(title="FIRST NAME", message= FirstName + " Does Not Exists in the excel File.") 
                 break 
-    #create save/add button     
-              
-
+            
+    #create save/add button 
+    def button_add(self):
+        button = tkinter.Button(PERSONAL_INFORMATION, text="Enter data", command= self.add)
+        button.grid(row=9, column=2, sticky="news", padx=20, pady=10)    
+            
     #create search button
+    def button_search(self):
+        button = tkinter.Button(PERSONAL_INFORMATION, text="Search data", command= self.searchByFirstName)
+        button.grid(row=9, column=3, sticky="news", padx=20, pady=10)
         
