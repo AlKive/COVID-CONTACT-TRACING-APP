@@ -138,7 +138,7 @@ class Tracer:
                 tkinter.messagebox.showwarning(title= "Error", message="You have not accepted the terms and conditions")
     #create search method
     def searchByFirstName(self):
-        FirstName = self.FirstName_INPUT.get()
+        FirstName = self.FIRST_NAME_INPUT.get()
         wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")  
         sheet = wb.active  
         for row in sheet.iter_cols(min_row=1, min_col=1, max_row=1000, max_col=1):  
@@ -149,7 +149,13 @@ class Tracer:
             if FirstName != (cell.value):
                 messagebox.showinfo(title="FIRST NAME", message= FirstName + " Does Not Exists in the excel File.") 
                 break 
-            
+    def showdata(self):
+        wb = openpyxl.load_workbook("C:\git\BSCPE 1ST YEAR 2ND SEM\OOP\ASSIGNMENTS\COVID-CONTACT-TRACING-APP\Tracer\data.xlsx")  
+        sheet = wb.active 
+        cells = sheet['A1','B7'] 
+        # cells behave like range operator  
+        for i1,i2 in cells:  
+            print("{0:8} {1:8}".format(i1.value,i2.value))          
     #create save/add button 
     def button_add(self):
         button = tkinter.Button(PERSONAL_INFORMATION, text="Enter data", command= self.add)
