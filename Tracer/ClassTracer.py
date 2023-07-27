@@ -66,14 +66,17 @@ class Tracer:
         self.NATIONALITY = tkinter.Label(PERSONAL_INFORMATION, text="Nationality")
         self.NATIONALITY.grid(row=4, column=0)
         self.NATIONALITY_INPUT = ttk.Combobox(PERSONAL_INFORMATION, values=["Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"])
+        self.NATIONALITY_INPUT['state'] = 'readonly'
         self.NATIONALITY_INPUT.grid(row=4, column=1)
         
     #Vaccination Status label and entry
     def vaccination(self):
-        
+        #"Unvaccinated", "1st Dose", "2nd Dose(Fully Vaccinated)", "1st Booster Shot", "2nd Booster Shot"
         self.VACCINATION_STATUS = tkinter.Label(PERSONAL_INFORMATION, text="Vaccination Status")
         self.VACCINATION_STATUS.grid(row=7, column=0)
-        self.VACCINATION_STATUS_INPUT = ttk.Combobox(PERSONAL_INFORMATION, values=["Unvaccinated", "1st Dose", "2nd Dose(Fully Vaccinated)", "1st Booster Shot", "2nd Booster Shot"])
+        selected_nationality = tkinter.StringVar(value= ["Unvaccinated", "First Dose", "Second Dose(Fully Vaccinated)", "First Booster Shot", "Second Booster Shot"])
+        self.VACCINATION_STATUS_INPUT = ttk.Combobox(PERSONAL_INFORMATION, textvariable=selected_nationality)
+        self.VACCINATION_STATUS_INPUT['state'] = 'readonly'
         self.VACCINATION_STATUS_INPUT.grid(row=7, column=1)
 
     #Phone Number label and entry
@@ -108,7 +111,7 @@ class Tracer:
             lastname = self.LAST_NAME_INPUT.get()
             
             if firstname and lastname:
-                    nationality  = self.NATIONALITY_INPUT.get()
+                    nationality  = str(self.NATIONALITY_INPUT).get()
                     age = self.AGE_INPUT.get()
                     address = self.ADDRESS_INPUT.get()
                     gender = self.GENDER_INPUT.get()
@@ -163,14 +166,14 @@ class Tracer:
         sheet = wb["Sheet"]  
         for cell in sheet.iter_rows(min_row=1, min_col=1, max_row =sheet.max_row, max_col=9, values_only=True):  
             if cell[0] == str(FirstNameInput):
-                self.FIRST_NAME_INPUT.insert(0, cell[1])
-                self.LAST_NAME_INPUT.insert(0, cell[2])
-                self.GENDER_INPUT.insert(0, cell[3])
-                self.AGE_INPUT.insert(0, cell[4])
-                self.NATIONALITY_INPUT.insert(0, cell[5])
-                self.ADDRESS_INPUT.insert(0, cell[6])
-                self.PHONE_INPUT.insert(0, cell[7])
-                self.VACCINATION_STATUS_INPUT.insert(0, cell[8])
+                self.FIRST_NAME_INPUT.insert(0, cell[0])
+                self.LAST_NAME_INPUT.insert(0, cell[1])
+                self.GENDER_INPUT.insert(0, cell[2])
+                self.AGE_INPUT.insert(0, cell[3])
+                self.NATIONALITY_INPUT.insert(0, cell[4])
+                self.ADDRESS_INPUT.insert(0, cell[5])
+                self.PHONE_INPUT.insert(0, cell[6])
+                self.VACCINATION_STATUS_INPUT.insert(0, cell[7])
                 
                 self.FIRST_NAME_INPUT.configure(state= tkinter.DISABLED)
                 self.LAST_NAME_INPUT.configure(state= tkinter.DISABLED)
