@@ -21,18 +21,18 @@ class Tracer:
             self.ws.configure(highlightbackground= "dark blue", highlightthickness= "3",)
 
         #create frame for necessary information 
-            self.user_info_frame = tkinter.Frame(self.ws, background= "light blue")
-            self.user_info_frame.place(x= 5, y = 5, width = 480, height = 550)
+            self.user_info_frame = tkinter.Frame(self.ws, background= "light blue", highlightthickness= 4, highlightbackground= "dark blue")
+            self.user_info_frame.place(x= 10, y = 20, width = 480, height = 540)
             #label the frame
-            self.user_info_frame_label =tkinter.LabelFrame(self.user_info_frame, text="PERSONAL INFORMATION", padx=3, pady= 20, foreground= "dark blue")
-            self.user_info_frame_label.place(x= 5, y = 5, width = 480, height = 550)
+            self.user_info_frame_label =tkinter.LabelFrame(self.user_info_frame, text="PERSONAL INFORMATION",padx=5, pady= 20, font= ("Brass Mono", 15), foreground= "dark blue", background= "white")
+            self.user_info_frame_label.place(x= 10, y = 20, width= 460, height= 500)
 
         #create frame for checkboxes
-            symptoms_frame= tkinter.Frame(self.ws, background= "light blue")
-            symptoms_frame.place (x= 500, y = 5, width = 480, height = 550)
+            self.symptoms_frame= tkinter.Frame(self.ws, background= "light blue", highlightthickness= 4, highlightbackground= "dark blue")
+            self.symptoms_frame.place (x= 500, y = 20, width = 480, height = 540)
             #label the frame
-            symptoms_frame_label =tkinter.LabelFrame(symptoms_frame, text="Check that may apply: ")
-            symptoms_frame_label.place(x= 505, y = 5)
+            self.symptoms_frame_label =tkinter.LabelFrame(self.symptoms_frame, text=  "SYMPTOMS ", padx=5, pady= 20, font= ("Brass Mono", 15), foreground= "dark blue", background= "white")
+            self.symptoms_frame_label.place(x= 10, y = 20, width= 460, height= 500)
             
     #create functions for getting user's input using tkinter entry with label
 
