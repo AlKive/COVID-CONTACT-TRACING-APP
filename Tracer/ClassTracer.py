@@ -18,20 +18,26 @@ class Tracer:
             self.ws = tkinter.Tk()
             self.ws.geometry("1000x600")
             self.ws.title("COVID Contact Tracing Form")
-            self.ws.configure(highlightbackground= "dark blue", highlightthickness= "3",)
+            self.ws.configure(highlightbackground= "dark blue", highlightthickness= 6)
 
         #create frame for necessary information 
             self.user_info_frame = tkinter.Frame(self.ws, background= "light blue", highlightthickness= 4, highlightbackground= "dark blue")
             self.user_info_frame.place(x= 10, y = 20, width = 480, height = 540)
             #label the frame
-            self.user_info_frame_label =tkinter.LabelFrame(self.user_info_frame, text="PERSONAL INFORMATION",padx=5, pady= 20, font= ("Brass Mono", 15), foreground= "dark blue", background= "white")
+            self.user_info_frame_label =tkinter.LabelFrame(self.user_info_frame, text="PERSONAL INFORMATION",
+                                                           padx=5, pady= 20, font= ("Brass Mono", 15),
+                                                            highlightthickness= 4, highlightbackground= "light yellow", 
+                                                            foreground= "dark blue", highlightcolor= "dark green")
             self.user_info_frame_label.place(x= 10, y = 20, width= 460, height= 500)
 
         #create frame for checkboxes
-            self.symptoms_frame= tkinter.Frame(self.ws, background= "light blue", highlightthickness= 4, highlightbackground= "dark blue")
+            self.symptoms_frame= tkinter.Frame(self.ws, background= "light blue",highlightthickness= 4, highlightbackground= "dark blue")
             self.symptoms_frame.place (x= 500, y = 20, width = 480, height = 540)
             #label the frame
-            self.symptoms_frame_label =tkinter.LabelFrame(self.symptoms_frame, text=  "SYMPTOMS ", padx=5, pady= 20, font= ("Brass Mono", 15), foreground= "dark blue", background= "white")
+            self.symptoms_frame_label =tkinter.LabelFrame(self.symptoms_frame, text=  "SYMPTOMS ", 
+                                                          padx=5, pady= 20, font= ("Brass Mono", 15),
+                                                          foreground= "dark blue", highlightbackground ="light yellow", 
+                                                          highlightthickness= 4, highlightcolor= "dark green")
             self.symptoms_frame_label.place(x= 10, y = 20, width= 460, height= 500)
             
     #create functions for getting user's input using tkinter entry with label
